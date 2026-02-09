@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdkj8s3wl3rs7"]
 
-[ext_resource type="Script" uid="uid://deihmo2i0emq1" path="res://logic.gd" id="1_ja728"]
+[ext_resource type="Script" uid="uid://cld6bxr2ajtq7" path="res://Scripts/node_2d.gd" id="1_ja728"]
 
 [node name="Node2D" type="Node2D" unique_id=1583274842]
 script = ExtResource("1_ja728")
