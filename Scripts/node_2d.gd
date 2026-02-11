@@ -3,6 +3,9 @@ extends Node2D
 @onready var fade = $"../fade"
 
 
+var current_level : Node2D = null
+var next_level = preload("res://Assets/Scenes/animation_pre_results.tscn")
+
 
 # Signals that a pull has been completed.
 signal pull_completed
@@ -17,6 +20,8 @@ var characters = [
 ]
 
 func _ready():
+	
+	current_level = $"../MAIN_MENU"
 	randomize()
 
 # Call this function to perform a pull
@@ -44,5 +49,8 @@ func pull():
 func _on_button_pressed():
 	
 	await fade.fade(2.0, 1.5).finished
+	current_level.queue_free()
 	await fade.fade(0.0, 1.5).finished
+	var new_level = next_level.instantiate()
+	add_child(new_level)
 	pull() # Replace with function body.

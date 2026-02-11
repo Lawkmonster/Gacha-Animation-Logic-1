@@ -1,31 +1,29 @@
-[gd_scene format=3 uid="uid://bdkj8s3wl3rs7"]
+[gd_scene format=3 uid="uid://4i6wpgnq62vj"]
 
-[ext_resource type="Script" uid="uid://cld6bxr2ajtq7" path="res://Scripts/node_2d.gd" id="1_ja728"]
-[ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="2_8t2v2"]
-[ext_resource type="PackedScene" uid="uid://c4cnqvy8t36ed" path="res://Assets/Scenes/fade.tscn" id="3_vohp4"]
+[ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="1_x6jn2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vohp4"]
-atlas = ExtResource("2_8t2v2")
+atlas = ExtResource("1_x6jn2")
 region = Rect2(0, 0, 92, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqbpb"]
-atlas = ExtResource("2_8t2v2")
+atlas = ExtResource("1_x6jn2")
 region = Rect2(0, 36, 92, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xgr2a"]
-atlas = ExtResource("2_8t2v2")
+atlas = ExtResource("1_x6jn2")
 region = Rect2(0, 72, 92, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_802lj"]
-atlas = ExtResource("2_8t2v2")
+atlas = ExtResource("1_x6jn2")
 region = Rect2(0, 108, 92, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0ca2"]
-atlas = ExtResource("2_8t2v2")
+atlas = ExtResource("1_x6jn2")
 region = Rect2(0, 144, 92, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_duppq"]
-atlas = ExtResource("2_8t2v2")
+atlas = ExtResource("1_x6jn2")
 region = Rect2(0, 180, 92, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vqsqb"]
@@ -54,13 +52,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node" type="Node" unique_id=1679795934]
+[node name="MAIN_MENU" type="Node2D" unique_id=778541005]
 
-[node name="MAIN_MENU" type="Node2D" parent="." unique_id=2091681799]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1837900523]
 
-[node name="Sprite2D" type="Sprite2D" parent="MAIN_MENU" unique_id=855360247]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MAIN_MENU/Sprite2D" unique_id=1956763969]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D" unique_id=700539134]
 texture_filter = 1
 position = Vector2(707.00006, 238)
 scale = Vector2(5.6521745, 6.4444447)
@@ -69,9 +65,9 @@ animation = &"idle_pull"
 autoplay = "idle_pull"
 frame_progress = 0.06872468
 
-[node name="UI" type="Node2D" parent="MAIN_MENU" unique_id=1775121839]
+[node name="UI" type="Node2D" parent="." unique_id=83395347]
 
-[node name="Button" type="Button" parent="MAIN_MENU/UI" unique_id=983156936]
+[node name="Button" type="Button" parent="UI" unique_id=1116945301]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -84,10 +80,3 @@ offset_bottom = 603.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Test PULL"
-
-[node name="PullLOGIC" type="Node2D" parent="." unique_id=308368297]
-script = ExtResource("1_ja728")
-
-[node name="fade" parent="." unique_id=1101812837 instance=ExtResource("3_vohp4")]
-
-[connection signal="pressed" from="MAIN_MENU/UI/Button" to="PullLOGIC" method="_on_button_pressed"]

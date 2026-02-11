@@ -2,11 +2,9 @@ extends CanvasLayer
 
 @export var color_rect: ColorRect
 
-var current_level : Node2D = null
-
 func _ready():
 	
-	current_level = $"../MAIN_MENU"
+
 	color_rect = $ColorRect
 	color_rect.color.a = 0.0 # Replace with function body.
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE#
