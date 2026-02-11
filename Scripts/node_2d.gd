@@ -1,5 +1,12 @@
 extends Node2D
-		
+
+@onready var fade = $"../fade"
+
+
+
+# Signals that a pull has been completed.
+signal pull_completed
+
 # Character pool with pull rates
 var characters = [
 	{"name": "Common Sword", "rarity": "Common", "rate": 50.0},
@@ -29,10 +36,13 @@ func pull():
 		if roll <= current:
 			print("★ You pulled: " + char.name + " [" + char.rarity + "]")
 			return char
+			
+			pull_completed.emit(char.name, char.rarity)
 	
 	return characters[0]
 
-func _input(event):
-	# Press SPACE to pull
-	if event.is_action_pressed("ui_accept"):
-		pull()
+func _on_button_pressed():
+	
+	await fade.fade(2.0, 1.5).finished
+	await fade.fade(0.0, 1.5).finished
+	pull() # Replace with function body.
