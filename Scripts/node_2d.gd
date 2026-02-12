@@ -4,7 +4,7 @@ extends Node2D
 
 
 var current_level : Node2D = null
-var next_level = preload("res://Assets/Scenes/animation_pre_results.tscn")
+var next_level = load("res://Assets/Scenes/animation_pre_results.tscn")
 
 
 # Signals that a pull has been completed.
@@ -43,6 +43,7 @@ func pull():
 			return char
 			
 			pull_completed.emit(char.name, char.rarity)
+			
 	
 	return characters[0]
 
@@ -53,4 +54,4 @@ func _on_button_pressed():
 	await fade.fade(0.0, 1.5).finished
 	var new_level = next_level.instantiate()
 	add_child(new_level)
-	pull() # Replace with function body.
+	pull()

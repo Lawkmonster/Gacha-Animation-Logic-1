@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3k1g36sy8450"]
 
 [ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="1_s2qxp"]
+[ext_resource type="Script" uid="uid://bt552u7tfadbk" path="res://Scripts/animated_sprite_2d.gd" id="2_13q28"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13q28"]
 atlas = ExtResource("1_s2qxp")
@@ -53,6 +54,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=2012729269]
+script = ExtResource("2_13q28")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=850413258]
 
