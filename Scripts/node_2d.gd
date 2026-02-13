@@ -5,10 +5,8 @@ extends Node2D
 
 var current_level : Node2D = null
 var next_level = load("res://Assets/Scenes/animation_pre_results.tscn")
-
-
-# Signals that a pull has been completed.
 signal pull_completed
+
 
 # Character pool with pull rates
 var characters = [
@@ -40,10 +38,10 @@ func pull():
 		current += char.rate
 		if roll <= current:
 			print("★ You pulled: " + char.name + " [" + char.rarity + "]")
+			pull_completed.emit()
 			return char
-			
-			pull_completed.emit(char.name, char.rarity)
-			
+
+
 	
 	return characters[0]
 
@@ -52,6 +50,8 @@ func _on_button_pressed():
 	await fade.fade(2.0, 1.5).finished
 	current_level.queue_free()
 	await fade.fade(0.0, 1.5).finished
-	var new_level = next_level.instantiate()
-	add_child(new_level)
+	var pull_sim = preload("res://Assets/Scenes/animation_pre_results.tscn").instantiate()
+	pull_sim.parent_menu = self  # Pass reference
+	add_child(pull_sim)
 	pull()
+	

@@ -15,6 +15,10 @@ run/main_scene="uid://bdkj8s3wl3rs7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://cb7n0oyc12bmv"
+
 [input]
 
 Pull_Button={

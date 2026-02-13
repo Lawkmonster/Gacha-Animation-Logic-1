@@ -53,7 +53,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=2012729269]
+[node name="animation_results" type="Node2D" unique_id=2012729269]
 script = ExtResource("2_13q28")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=850413258]
@@ -63,5 +63,6 @@ texture_filter = 1
 position = Vector2(593.00006, 305)
 scale = Vector2(9.043478, 10.583333)
 sprite_frames = SubResource("SpriteFrames_f3y20")
+autoplay = "default"
 frame = 3
 frame_progress = 0.8787484

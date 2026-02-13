@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdkj8s3wl3rs7"]
 
 [ext_resource type="Script" uid="uid://cld6bxr2ajtq7" path="res://Scripts/node_2d.gd" id="1_ja728"]
+[ext_resource type="Script" uid="uid://cb7n0oyc12bmv" path="res://Scripts/GameManager.gd" id="1_mqbpb"]
 [ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="2_8t2v2"]
 [ext_resource type="PackedScene" uid="uid://c4cnqvy8t36ed" path="res://Assets/Scenes/fade.tscn" id="3_vohp4"]
 
@@ -55,6 +56,7 @@ animations = [{
 }]
 
 [node name="Node" type="Node" unique_id=1679795934]
+script = ExtResource("1_mqbpb")
 
 [node name="MAIN_MENU" type="Node2D" parent="." unique_id=2091681799]
 
