@@ -95,27 +95,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="animation_results" type="Node2D" unique_id=2012729269]
+[node name="Node" type="Node" unique_id=603684390]
 script = ExtResource("2_13q28")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=850413258]
+[node name="animation_results" type="Node2D" parent="." unique_id=2012729269]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationPlayer" unique_id=1005743852]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animation_results" unique_id=850413258]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="animation_results/AnimationPlayer" unique_id=1005743852]
 texture_filter = 1
 position = Vector2(559, 214)
 scale = Vector2(9.043478, 10.583333)
 sprite_frames = SubResource("SpriteFrames_f3y20")
 animation = &"rare"
 autoplay = "common"
-frame_progress = 0.73657554
+frame_progress = 0.6871058
 
-[node name="Button" type="Button" parent="." unique_id=1952398215]
+[node name="Button" type="Button" parent="animation_results" unique_id=1952398215]
 offset_left = 406.0
 offset_top = 429.0
 offset_right = 727.7986
 offset_bottom = 499.0
 text = "Return"
 
-[node name="fade" parent="." unique_id=1101812837 instance=ExtResource("4_nn1ux")]
+[node name="fade" parent="animation_results" unique_id=1101812837 instance=ExtResource("4_nn1ux")]
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="animation_results/Button" to="." method="_on_button_pressed"]

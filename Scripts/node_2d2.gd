@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var fade = $"../fade"
-var current_level = ("res://Assets/Scenes/animation_pre_results.tscn")
+var current_level = ("res://Assets/Scenes/main_menu.tscn")
 var next_level = load("res://Assets/Scenes/animation_pre_results.tscn")
 
 
@@ -16,7 +16,7 @@ var characters = [
 
 func _ready():
 	
-	current_level = $"../MAIN_MENU"
+	current_level = $".."
 	randomize()
 
 # Call this function to perform a pull
@@ -42,7 +42,7 @@ func pull():
 func _on_button_pressed():
 	
 	await fade.fade(2.0, 1.5).finished
-	current_level.queue_free()
+	queue_free()
 	await fade.fade(0.0, 1.5).finished
 	var pull_sim = preload("res://Assets/Scenes/animation_pre_results.tscn").instantiate()
 	add_child(pull_sim)
