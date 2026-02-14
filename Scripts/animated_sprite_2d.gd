@@ -1,17 +1,24 @@
 extends Node2D
 
-var parent_menu
+@onready var fade = $fade
+@onready var _animated_sprite = $AnimationPlayer/AnimatedSprite2D
+var main_menu = preload("res://Assets/Scenes/animation_pre_results.tscn")
 
 func _ready():
-	if parent_menu:
-		parent_menu.pull_completed.connect(data_received)
+	
+	GameManager.pull_completed.connect(data_received)
+	
 # Called when the node enters the scene tree for the first time.
-func data_received():
+func data_received(char_name: String, char_rarity: String):
 	
-	print("signal_receieved")
+	if char_rarity == "Rare":
+		_animated_sprite.play("rare")
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+func _on_button_pressed():
+	
+	var current_level = $"."
+	await fade.fade(2.0, 1.5).finished
+	current_level.queue_free()
+	await fade.fade(0.0, 1.5).finished
+	get_tree().root.add_child(main_menu)

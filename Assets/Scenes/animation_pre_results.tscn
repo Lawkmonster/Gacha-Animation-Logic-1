@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="1_s2qxp"]
 [ext_resource type="Script" uid="uid://bt552u7tfadbk" path="res://Scripts/animated_sprite_2d.gd" id="2_13q28"]
+[ext_resource type="Texture2D" uid="uid://cnbj45hm3y6jk" path="res://Assets/DARK Edition/Sprites/Flower Enemy/move 32x32.png" id="3_f48g6"]
+[ext_resource type="PackedScene" uid="uid://c4cnqvy8t36ed" path="res://Assets/Scenes/fade.tscn" id="4_nn1ux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13q28"]
 atlas = ExtResource("1_s2qxp")
@@ -27,6 +29,26 @@ region = Rect2(0, 144, 46, 36)
 atlas = ExtResource("1_s2qxp")
 region = Rect2(0, 180, 46, 36)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3y20"]
+atlas = ExtResource("3_f48g6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox4tr"]
+atlas = ExtResource("3_f48g6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2e4y"]
+atlas = ExtResource("3_f48g6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pti81"]
+atlas = ExtResource("3_f48g6")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8svav"]
+atlas = ExtResource("3_f48g6")
+region = Rect2(0, 128, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_f3y20"]
 animations = [{
 "frames": [{
@@ -49,7 +71,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_tfkx6")
 }],
 "loop": true,
-"name": &"default",
+"name": &"common",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3y20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox4tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2e4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pti81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8svav")
+}],
+"loop": true,
+"name": &"rare",
 "speed": 5.0
 }]
 
@@ -60,9 +102,20 @@ script = ExtResource("2_13q28")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationPlayer" unique_id=1005743852]
 texture_filter = 1
-position = Vector2(593.00006, 305)
+position = Vector2(559, 214)
 scale = Vector2(9.043478, 10.583333)
 sprite_frames = SubResource("SpriteFrames_f3y20")
-autoplay = "default"
-frame = 3
-frame_progress = 0.8787484
+animation = &"rare"
+autoplay = "common"
+frame_progress = 0.3393348
+
+[node name="Button" type="Button" parent="." unique_id=1952398215]
+offset_left = 406.0
+offset_top = 429.0
+offset_right = 727.7986
+offset_bottom = 499.0
+text = "Return"
+
+[node name="fade" parent="." unique_id=1101812837 instance=ExtResource("4_nn1ux")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
