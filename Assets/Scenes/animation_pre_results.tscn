@@ -107,7 +107,7 @@ scale = Vector2(9.043478, 10.583333)
 sprite_frames = SubResource("SpriteFrames_f3y20")
 animation = &"rare"
 autoplay = "common"
-frame_progress = 0.3393348
+frame_progress = 0.73657554
 
 [node name="Button" type="Button" parent="." unique_id=1952398215]
 offset_left = 406.0
