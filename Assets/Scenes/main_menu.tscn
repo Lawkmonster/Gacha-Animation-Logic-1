@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="1_x6jn2"]
 [ext_resource type="PackedScene" uid="uid://c4cnqvy8t36ed" path="res://Assets/Scenes/fade.tscn" id="3_cbhea"]
-[ext_resource type="Script" uid="uid://yq6vr23vaiv2" path="res://Scripts/node_2d2.gd" id="3_tanm1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vohp4"]
 atlas = ExtResource("1_x6jn2")
@@ -84,8 +83,3 @@ grow_vertical = 0
 text = "Test PULL"
 
 [node name="fade" parent="." unique_id=1101812837 instance=ExtResource("3_cbhea")]
-
-[node name="PullLOGIC" type="Node2D" parent="." unique_id=844628784]
-script = ExtResource("3_tanm1")
-
-[connection signal="pressed" from="UI/Button" to="PullLOGIC" method="_on_button_pressed"]

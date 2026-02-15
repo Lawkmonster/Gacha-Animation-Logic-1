@@ -1,22 +1,22 @@
 extends Node2D
 
 @onready var fade = $"../fade"
-var current_level = ("res://Assets/Scenes/animation_pre_results.tscn")
+var current_level = ("res://Assets/Scenes/node_2d.tscn")
 var next_level = load("res://Assets/Scenes/animation_pre_results.tscn")
 
 
 # Character pool with pull rates
 var characters = [
 	{"name": "Common Sword", "rarity": "Common", "rate": 50.0},
-	{"name": "Common Shield", "rarity": "Common", "rate": 20.0},
-	{"name": "Rare Bow", "rarity": "Rare", "rate": 20.0},
-	{"name": "Epic Staff", "rarity": "Epic", "rate": 9.0},
-	{"name": "Legendary Dragon", "rarity": "Legendary", "rate": 1.0}
+	{"name": "Common Shield", "rarity": "Common", "rate": 0.0},
+	{"name": "Rare Bow", "rarity": "Rare", "rate": 50.0},
+	{"name": "Epic Staff", "rarity": "Epic", "rate": 0.0},
+	{"name": "Legendary Dragon", "rarity": "Legendary", "rate": 0.0}
 ]
 
 func _ready():
 	
-	current_level = $"../MAIN_MENU"
+	current_level = $"../.."
 	randomize()
 
 # Call this function to perform a pull
@@ -34,6 +34,7 @@ func pull():
 	for char in characters:
 		current += char.rate
 		if roll <= current:
+			
 			print("★ You pulled: " + char.name + " [" + char.rarity + "]")
 			GameManager.pull_completed.emit(char.name, char.rarity)
 			return char
@@ -42,8 +43,6 @@ func pull():
 func _on_button_pressed():
 	
 	await fade.fade(2.0, 1.5).finished
-	current_level.queue_free()
 	await fade.fade(0.0, 1.5).finished
-	var pull_sim = preload("res://Assets/Scenes/animation_pre_results.tscn").instantiate()
-	add_child(pull_sim)
+	get_tree().change_scene_to_file("res://Assets/Scenes/animation_pre_results.tscn")
 	pull()

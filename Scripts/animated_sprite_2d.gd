@@ -14,7 +14,7 @@ func _ready():
 func data_received(char_name: String, char_rarity: String):
 	
 	if char_rarity == "Rare":
-		_animated_sprite.play("rare")
+		print ("signal received")
 	else:
 		_animated_sprite.play("common")
 	
@@ -22,8 +22,10 @@ func _on_button_pressed():
 	
 	
 	await fade.fade(2.0, 1.5).finished
+	current_level.visible = false
+	$animation_results/AnimationPlayer/AnimatedSprite2D.visible = false
 	await fade.fade(0.0, 1.5).finished
-	get_tree().root.add_child(main_menu.instantiate())
+	get_tree().change_scene_to_file("res://Assets/Scenes/node_2d.tscn")
 	current_level.queue_free()
 
 
