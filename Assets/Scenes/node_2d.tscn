@@ -85,9 +85,9 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Test PULL"
 
-[node name="PullLOGIC" type="Node2D" parent="MAIN_MENU" unique_id=308368297]
+[node name="PullLOGIC" type="Node2D" parent="." unique_id=308368297]
 script = ExtResource("1_ja728")
 
-[node name="fade" parent="MAIN_MENU" unique_id=1101812837 instance=ExtResource("3_vohp4")]
+[node name="fade" parent="." unique_id=1101812837 instance=ExtResource("3_vohp4")]
 
-[connection signal="pressed" from="MAIN_MENU/UI/Button" to="MAIN_MENU/PullLOGIC" method="_on_button_pressed"]
+[connection signal="pressed" from="MAIN_MENU/UI/Button" to="PullLOGIC" method="_on_button_pressed"]
