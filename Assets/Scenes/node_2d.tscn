@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cld6bxr2ajtq7" path="res://Scripts/node_2d.gd" id="1_ja728"]
 [ext_resource type="Texture2D" uid="uid://b7jboj3e5otuh" path="res://Assets/DARK Edition/Sprites/Hell Bot DARK/idle 92x36.png" id="2_8t2v2"]
+[ext_resource type="Texture2D" uid="uid://dgevby23w77td" path="res://Assets/UI Elements/kenney_ui-pack-rpg-expansion/preview.png" id="2_mqbpb"]
 [ext_resource type="PackedScene" uid="uid://c4cnqvy8t36ed" path="res://Assets/Scenes/fade.tscn" id="3_vohp4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vohp4"]
@@ -54,6 +55,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xgr2a"]
+texture = ExtResource("2_mqbpb")
+region_rect = Rect2(0, 0, 1100, 700)
+
 [node name="Node" type="Node" unique_id=1679795934]
 
 [node name="MAIN_MENU" type="Node2D" parent="." unique_id=2091681799]
@@ -69,20 +74,26 @@ animation = &"idle_pull"
 autoplay = "idle_pull"
 frame_progress = 0.06872468
 
-[node name="UI" type="Node2D" parent="MAIN_MENU" unique_id=1775121839]
+[node name="Control" type="Control" parent="MAIN_MENU" unique_id=1050287708]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="MAIN_MENU/UI" unique_id=983156936]
+[node name="Button" type="Button" parent="MAIN_MENU/Control" unique_id=983156936]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 361.0
-offset_top = 518.0
-offset_right = 794.0
-offset_bottom = 603.0
+offset_left = 341.0
+offset_top = 478.0
+offset_right = 774.0
+offset_bottom = 563.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_xgr2a")
 text = "Test PULL"
 
 [node name="PullLOGIC" type="Node2D" parent="." unique_id=308368297]
@@ -90,4 +101,4 @@ script = ExtResource("1_ja728")
 
 [node name="fade" parent="." unique_id=1101812837 instance=ExtResource("3_vohp4")]
 
-[connection signal="pressed" from="MAIN_MENU/UI/Button" to="PullLOGIC" method="_on_button_pressed"]
+[connection signal="pressed" from="MAIN_MENU/Control/Button" to="PullLOGIC" method="_on_button_pressed"]

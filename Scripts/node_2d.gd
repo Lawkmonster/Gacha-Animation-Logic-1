@@ -43,8 +43,8 @@ func _on_button_pressed():
 	
 	await fade.fade(2.0, 1.5).finished
 	current_level.queue_free()
+	await fade.fade(0.0, 1.5).finished
 	var new_level = next_level.instantiate()
 	add_child(new_level)
-	await fade.fade(0.0, 1.5).finished
 	pull()
 	
